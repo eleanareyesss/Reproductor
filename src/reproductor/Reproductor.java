@@ -25,19 +25,27 @@ import javax.swing.plaf.basic.BasicProgressBarUI;
  * @author elean
  */
 public class Reproductor extends javax.swing.JFrame {
+
     private MusicPlayer player;
     private Timer timer;
     private JList<String> playlist, playlist2;
     private DefaultListModel<String> listModel;
-    
 
     public Reproductor() {
         initComponents();
-        
+
         Fondo1.setVisible(true);
         Reproductor.setVisible(true);
-        
-        
+        Label.setVisible(true);
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        jLabel3.setVisible(false);
+        jLabel4.setVisible(false);
+        jLabel5.setVisible(false);
+        jLabel6.setVisible(false);
+        jLabel7.setVisible(false);
+        jLabel8.setVisible(false);
+
         Fondo.setVisible(false);
         BotonAgregarCancion.setVisible(false);
         Regresar.setVisible(false);
@@ -48,21 +56,19 @@ public class Reproductor extends javax.swing.JFrame {
         CurrentLabel.setVisible(false);
         CancionNombreLabel.setVisible(false);
         BotonPause.setVisible(false);
-        
+
         player = new MusicPlayer();
         listModel = new DefaultListModel<>();
         playlist = new JList<>(listModel);
-        jScrollPane1.setViewportView(playlist); 
-        
-        
-        
+        jScrollPane1.setViewportView(playlist);
+
         timer = new Timer(100, e -> {
             if (player.isPlaying()) {
                 long currentSeconds = player.getCurrentMicroseconds() / 1_000_000;
                 long totalSeconds = player.getTotalSeconds();
                 int progress = (int) ((double) currentSeconds / totalSeconds * 100);
                 JProgressBar.setValue(progress);
-                
+
                 long minutes = totalSeconds / 60;
                 long seconds = totalSeconds % 60;
                 DuracionLabel.setText(String.format("%02d:%02d", minutes, seconds));
@@ -72,7 +78,7 @@ public class Reproductor extends javax.swing.JFrame {
                 CurrentLabel.setText(String.format("%02d:%02d", currentMinutes, currentSecondsRemaining));
             }
         });
-        
+
         playlist.addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 int index = playlist.getSelectedIndex();
@@ -84,7 +90,6 @@ public class Reproductor extends javax.swing.JFrame {
             }
         });
 
-        
         loadSongsFromDefaultFolder();
     }
 
@@ -110,6 +115,14 @@ public class Reproductor extends javax.swing.JFrame {
         CurrentLabel = new javax.swing.JLabel();
         CancionNombreLabel = new javax.swing.JLabel();
         BotonPause = new javax.swing.JLabel();
+        Label = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
         Fondo1 = new javax.swing.JLabel();
@@ -201,6 +214,70 @@ public class Reproductor extends javax.swing.JFrame {
         });
         Reproducir.add(BotonPause, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 80, 90));
 
+        Label.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                LabelKeyReleased(evt);
+            }
+        });
+        Reproducir.add(Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, 160));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sofia.png"))); // NOI18N
+        jLabel8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jLabel8KeyReleased(evt);
+            }
+        });
+        Reproducir.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, 160));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sia.png"))); // NOI18N
+        jLabel7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jLabel7KeyReleased(evt);
+            }
+        });
+        Reproducir.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, 160));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sabrina.png"))); // NOI18N
+        jLabel6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jLabel6KeyReleased(evt);
+            }
+        });
+        Reproducir.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, 160));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Neighbourhood.png"))); // NOI18N
+        jLabel5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jLabel5KeyReleased(evt);
+            }
+        });
+        Reproducir.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, 160));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Melanie.png"))); // NOI18N
+        jLabel4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jLabel4KeyReleased(evt);
+            }
+        });
+        Reproducir.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, 160));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ember.png"))); // NOI18N
+        jLabel3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jLabel3KeyReleased(evt);
+            }
+        });
+        Reproducir.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, 160));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Dove.png"))); // NOI18N
+        jLabel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jLabel2KeyReleased(evt);
+            }
+        });
+        Reproducir.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 160, 160));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ariana.png"))); // NOI18N
         jLabel1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jLabel1KeyReleased(evt);
@@ -231,7 +308,7 @@ public class Reproductor extends javax.swing.JFrame {
         CurrentLabel.setVisible(true);
         CancionNombreLabel.setVisible(true);
         BotonPause.setVisible(true);
-        jScrollPane1.setBounds(50,110,730,360);
+        jScrollPane1.setBounds(50, 110, 730, 360);
 
         Fondo1.setVisible(false);
         Reproductor.setVisible(false);
@@ -259,6 +336,63 @@ public class Reproductor extends javax.swing.JFrame {
             player.selectSong(selectedIndex);
             player.play();
             updateProgressBar();
+
+            if (selectedIndex == 0 || selectedIndex == 1) {
+                jLabel1.setVisible(true);
+                jLabel2.setVisible(false);
+                jLabel3.setVisible(false);
+                jLabel4.setVisible(false);
+                jLabel5.setVisible(false);
+                jLabel6.setVisible(false);
+                jLabel7.setVisible(false);
+                jLabel8.setVisible(false);
+            } else if (selectedIndex == 2) {
+                jLabel2.setVisible(true);
+                jLabel1.setVisible(false);
+                jLabel3.setVisible(false);
+                jLabel4.setVisible(false);
+                jLabel5.setVisible(false);
+                jLabel6.setVisible(false);
+                jLabel7.setVisible(false);
+                jLabel8.setVisible(false);
+            } else if (selectedIndex == 3) {
+                jLabel2.setVisible(false);
+                jLabel1.setVisible(false);
+                jLabel3.setVisible(true);
+                jLabel4.setVisible(false);
+                jLabel5.setVisible(false);
+                jLabel6.setVisible(false);
+                jLabel7.setVisible(false);
+                jLabel8.setVisible(false);
+            } else if (selectedIndex == 5) {
+                jLabel2.setVisible(false);
+                jLabel1.setVisible(false);
+                jLabel3.setVisible(false);
+                jLabel4.setVisible(true);
+                jLabel5.setVisible(false);
+                jLabel6.setVisible(false);
+                jLabel7.setVisible(false);
+                jLabel8.setVisible(false);
+            } else if (selectedIndex == 6 || selectedIndex == 7) {
+                jLabel2.setVisible(false);
+                jLabel1.setVisible(false);
+                jLabel3.setVisible(false);
+                jLabel4.setVisible(false);
+                jLabel5.setVisible(false);
+                jLabel6.setVisible(true);
+                jLabel7.setVisible(false);
+                jLabel8.setVisible(false);
+            } else if (selectedIndex == 4) {
+                jLabel2.setVisible(false);
+                jLabel1.setVisible(false);
+                jLabel3.setVisible(true);
+                jLabel4.setVisible(false);
+                jLabel5.setVisible(false);
+                jLabel6.setVisible(false);
+                jLabel7.setVisible(false);
+                jLabel8.setVisible(false);
+            } 
+
         } else {
             JOptionPane.showMessageDialog(this, "No hay canción seleccionada.", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -266,9 +400,9 @@ public class Reproductor extends javax.swing.JFrame {
 
     private void RegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegresarMouseClicked
         Fondo1.setVisible(true);
-        
+
         jScrollPane1.setBounds(500, 160, 420, 310);
-        
+
         Reproductor.setVisible(true);
 
         Fondo.setVisible(false);
@@ -306,15 +440,40 @@ public class Reproductor extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonAgregarCancionMouseClicked
 
     private void jLabel1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel1KeyReleased
-        int selectedIndex = playlist.getSelectedIndex();
-        ImageIcon images;
-        if (selectedIndex == 0 || selectedIndex == 1) {
-            images=new ImageIcon(getClass().getResource("src/Imagenes/Ariana.png"));
-            jLabel1.setIcon(images);
-        } else {
-            JOptionPane.showMessageDialog(this, "No hay canción seleccionada.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+
     }//GEN-LAST:event_jLabel1KeyReleased
+
+    private void jLabel2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2KeyReleased
+
+    private void LabelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LabelKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LabelKeyReleased
+
+    private void jLabel3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel3KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3KeyReleased
+
+    private void jLabel4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel4KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4KeyReleased
+
+    private void jLabel5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel5KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5KeyReleased
+
+    private void jLabel6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel6KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6KeyReleased
+
+    private void jLabel7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel7KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7KeyReleased
+
+    private void jLabel8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel8KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8KeyReleased
 
     private void loadSongsFromDefaultFolder() {
         File musicFolder = new File("src/Music");
@@ -328,12 +487,13 @@ public class Reproductor extends javax.swing.JFrame {
             }
         }
     }
-    
+
     private void updateProgressBar() {
         if (!timer.isRunning()) {
             timer.start();
         }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -381,11 +541,19 @@ public class Reproductor extends javax.swing.JFrame {
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Fondo1;
     private javax.swing.JProgressBar JProgressBar;
+    private javax.swing.JLabel Label;
     private javax.swing.JList<String> ListaCanciones;
     private javax.swing.JLabel Regresar;
     private javax.swing.JPanel Reproducir;
     private javax.swing.JLabel Reproductor;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
