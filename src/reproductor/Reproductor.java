@@ -364,7 +364,7 @@ public class Reproductor extends javax.swing.JFrame {
                 jLabel6.setVisible(false);
                 jLabel7.setVisible(false);
                 jLabel8.setVisible(false);
-            } else if (selectedIndex == 5) {
+            } else if (selectedIndex == 4) {
                 jLabel2.setVisible(false);
                 jLabel1.setVisible(false);
                 jLabel3.setVisible(false);
@@ -373,7 +373,7 @@ public class Reproductor extends javax.swing.JFrame {
                 jLabel6.setVisible(false);
                 jLabel7.setVisible(false);
                 jLabel8.setVisible(false);
-            } else if (selectedIndex == 6 || selectedIndex == 7) {
+            } else if (selectedIndex == 5 || selectedIndex == 6) {
                 jLabel2.setVisible(false);
                 jLabel1.setVisible(false);
                 jLabel3.setVisible(false);
@@ -382,16 +382,34 @@ public class Reproductor extends javax.swing.JFrame {
                 jLabel6.setVisible(true);
                 jLabel7.setVisible(false);
                 jLabel8.setVisible(false);
-            } else if (selectedIndex == 4) {
+            } else if (selectedIndex == 7) {
                 jLabel2.setVisible(false);
                 jLabel1.setVisible(false);
-                jLabel3.setVisible(true);
+                jLabel3.setVisible(false);
+                jLabel4.setVisible(false);
+                jLabel5.setVisible(false);
+                jLabel6.setVisible(false);
+                jLabel7.setVisible(true);
+                jLabel8.setVisible(false);
+            } else if (selectedIndex == 8) {
+                jLabel2.setVisible(false);
+                jLabel1.setVisible(false);
+                jLabel3.setVisible(false);
                 jLabel4.setVisible(false);
                 jLabel5.setVisible(false);
                 jLabel6.setVisible(false);
                 jLabel7.setVisible(false);
+                jLabel8.setVisible(true);
+            } else if (selectedIndex == 9) {
+                jLabel2.setVisible(false);
+                jLabel1.setVisible(false);
+                jLabel3.setVisible(false);
+                jLabel4.setVisible(false);
+                jLabel5.setVisible(true);
+                jLabel6.setVisible(false);
+                jLabel7.setVisible(false);
                 jLabel8.setVisible(false);
-            } 
+            }
 
         } else {
             JOptionPane.showMessageDialog(this, "No hay canción seleccionada.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -415,6 +433,15 @@ public class Reproductor extends javax.swing.JFrame {
         CurrentLabel.setVisible(false);
         CancionNombreLabel.setVisible(false);
         BotonPause.setVisible(false);
+
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        jLabel3.setVisible(false);
+        jLabel4.setVisible(false);
+        jLabel5.setVisible(false);
+        jLabel6.setVisible(false);
+        jLabel7.setVisible(false);
+        jLabel8.setVisible(false);
     }//GEN-LAST:event_RegresarMouseClicked
 
     private void BotonAgregarCancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregarCancionMouseClicked
